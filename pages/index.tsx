@@ -130,8 +130,8 @@ const Home = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Samay — find a time which works for everyone</title>
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <title>Scheduler — find a time which works for everyone</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta

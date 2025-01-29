@@ -15,7 +15,7 @@ import { PollFromDB } from "../../models/poll";
 dayjs.extend(localizedFormat);
 
 const NEXT_PUBLIC_BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_CLIENT_BASE_URL || "http://localhost:3000";
 
 const CopyTextMain = (props: { poll: PollFromDB }): JSX.Element => {
   const { poll } = props;

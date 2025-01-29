@@ -6,8 +6,8 @@ const Privacy = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Samay — privacy policy</title>
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <title>Scheduler — privacy policy</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
         <meta name="robots" content="noindex" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

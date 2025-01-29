@@ -14,8 +14,8 @@ const HowTo = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Samay — how-to</title>
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <title>Scheduler — how-to</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
         <meta name="robots" content="noindex" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

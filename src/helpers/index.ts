@@ -73,6 +73,7 @@ export const isUserPresentInVotes = (
 const ENCRYPTION_KEY = process.env.NEXT_PUBLIC_ENCRYPTION_KEY || "";
 const ENCRYPTION_IV = process.env.NEXT_PUBLIC_ENCRYPTION_IV || "";
 
+
 export const encrypt = (text: string): string => {
   let cipher = crypto.createCipheriv(
     "aes-256-cbc",

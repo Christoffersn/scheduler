@@ -1,7 +1,7 @@
 <div align="center">
   <a href="https://samay.app/">
     <img
-      src="./public/favicon.svg"
+      src="./public/favicon.ico"
       alt="Samay Logo"
       height="64"
     />

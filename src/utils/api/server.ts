@@ -1,7 +1,14 @@
 import { Poll, Vote, HttpResponse, Time } from "../../models/poll";
 
-const NEXT_PUBLIC_BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+const getBaseUrl = () => {
+  if (typeof window === 'undefined') {
+    // Server-side
+    return process.env.NEXT_PUBLIC_SERVER_BASE_URL;
+  }
+  // Client-side
+  return process.env.NEXT_PUBLIC_CLIENT_BASE_URL;
+}
 
 const httpMethod = async (
   endpoint: string,
@@ -19,21 +26,22 @@ const httpMethod = async (
 const getPoll = (
   pollID: string | string[] | null | undefined
 ): Promise<HttpResponse> => {
-  const endpoint = `${NEXT_PUBLIC_BASE_URL}/api/poll/${pollID}`;
+  const endpoint = `/api/poll/${pollID}`;
   const requestOptions: RequestInit = {
     method: "GET",
   };
-  return httpMethod(endpoint, requestOptions);
+  return httpMethod(getBaseUrl() + endpoint, requestOptions);
 };
 
 const createPoll = (pollArgs: { poll: Poll }): Promise<HttpResponse> => {
   const { poll } = pollArgs;
-  const endpoint = `${NEXT_PUBLIC_BASE_URL}/api/poll/create`;
+  const endpoint = `/api/poll/create`;
+  console.log(getBaseUrl() + endpoint);
   const requestOptions: RequestInit = {
     method: "POST",
     body: JSON.stringify(poll),
   };
-  return httpMethod(endpoint, requestOptions);
+  return httpMethod(getBaseUrl() + endpoint, requestOptions);
 };
 
 const markTimes = (voteArgs: {
@@ -41,12 +49,12 @@ const markTimes = (voteArgs: {
   pollID: string;
 }): Promise<HttpResponse> => {
   const { newVote, pollID } = voteArgs;
-  const endpoint = `${NEXT_PUBLIC_BASE_URL}/api/poll/${pollID}`;
+  const endpoint = `/api/poll/${pollID}`;
   const requestOptions: RequestInit = {
     method: "PUT",
     body: JSON.stringify(newVote),
   };
-  return httpMethod(endpoint, requestOptions);
+  return httpMethod(getBaseUrl() + endpoint, requestOptions);
 };
 
 const markFinalTime = (voteArgs: {
@@ -55,12 +63,12 @@ const markFinalTime = (voteArgs: {
   secret: string;
 }): Promise<HttpResponse> => {
   const { finalTime, pollID, secret } = voteArgs;
-  const endpoint = `${NEXT_PUBLIC_BASE_URL}/api/poll/${pollID}/${secret}`;
+  const endpoint = `/api/poll/${pollID}/${secret}`;
   const requestOptions: RequestInit = {
     method: "PUT",
     body: JSON.stringify(finalTime),
   };
-  return httpMethod(endpoint, requestOptions);
+  return httpMethod(getBaseUrl() + endpoint, requestOptions);
 };
 
 const deletePoll = (deleteArgs: {
@@ -68,11 +76,11 @@ const deletePoll = (deleteArgs: {
   secret: string;
 }): Promise<HttpResponse> => {
   const { pollID, secret } = deleteArgs;
-  const endpoint = `${NEXT_PUBLIC_BASE_URL}/api/poll/${pollID}/${secret}`;
+  const endpoint = `/api/poll/${pollID}/${secret}`;
   const requestOptions: RequestInit = {
     method: "DELETE",
   };
-  return httpMethod(endpoint, requestOptions);
+  return httpMethod(getBaseUrl() + endpoint, requestOptions);
 };
 
 export { getPoll, createPoll, markTimes, markFinalTime, deletePoll };

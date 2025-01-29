@@ -19,7 +19,7 @@ const NavBar = (): JSX.Element => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setSamayNewVisitor(!localStorage.getItem("samayNewVisitor"));
+      setSamayNewVisitor(false);
     }
   }, [setSamayNewVisitor]);
 
@@ -28,7 +28,7 @@ const NavBar = (): JSX.Element => {
       <Container className="navbar-container">
         <Navbar.Brand href="/" className="navbar-brand">
           <LogoSVG className="navbar-logo" />
-          <span className="navbar-logo-text">samay</span>
+          <span className="navbar-logo-text">scheduler</span>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
@@ -86,16 +86,6 @@ const NavBar = (): JSX.Element => {
             <Link href="https://github.com/samay-app/samay">
               <a className="navbar-link">
                 <Github className="navbar-link-icon" /> GitHub
-              </a>
-            </Link>
-            <Link href="/privacy">
-              <a className="navbar-link">
-                <Lock className="navbar-link-icon" /> Privacy
-              </a>
-            </Link>
-            <Link href="https://www.buymeacoffee.com/anandbaburajan">
-              <a className="navbar-link">
-                <Heart className="navbar-link-icon" /> Buy me a coffee
               </a>
             </Link>
           </Nav>
